@@ -2,7 +2,7 @@ import BlogList from "@/components/blogs/BlogList";
 import { dbUrl } from "../api/new-blog";
 import { MongoClient } from "mongodb";
 import { useSession } from "next-auth/react";
-import { Fragment, useEffect } from "react";
+import { Fragment } from "react";
 import Link from "next/link";
 import { useContext } from "react";
 import { AuthContext } from "@/store/auth-context";
