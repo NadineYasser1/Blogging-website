@@ -5,21 +5,27 @@ import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useRouter } from "next/router";
 import { Fragment, useContext } from "react";
+import Head from "next/head";
 
 export default function Home() {
+
   const { t } = useTranslation()
   const router = useRouter()
   const authCtx = useContext(AuthContext)
   function viewBlogsHandler() {
     if(authCtx.isAuthenticated){
-    router.push('./blogs')
+    router.push('./'+router.locale+'/blogs')
     } else {
-      router.push('/login')
+      router.push('/'+router.locale+'/login')
     }
   }
 
   return (
     <Fragment>
+    <Head>
+    <title>{t('Blogging app')}</title>
+    <meta name="description" content="home-page"/>
+    </Head>
     <div>
     <Title>{t("Welcome to the blogging App")}</Title>
     <FlatButton onPress={viewBlogsHandler}>{t("View Blogs")}</FlatButton>
@@ -32,16 +38,12 @@ export default function Home() {
   )
 }
 
-export async function getStaticProps(context) {
-  const { locale } = context
-  // const res = await fetch(`http://localhost:3000/${locale}`)
-  // const data = await res.json()
+export async function getServerSideProps({locale}) {
 
   return {
     props: {
       ...(await serverSideTranslations(locale)),
-      // data,
-      // locale,
+
     }
   }
 }

@@ -1,6 +1,25 @@
 {
-
-    "HELLO_WORLD": "اهلا عالم" 
+  "HELLO_WORLD": "اهلا عالم",
+  "Blogging app": "تطبيق المدوّنة",
+  "Home": "الرئيسية",
+  "New Blog": "مدونة جديدة",
+  "Sign out": "تسجيل الخروج",
+  "Sign in": "تسجيل الدخول",
+  "Welcome to the blogging App": "مرحبًا بك في تطبيق المدونة",
+  "View Blogs": "عرض المدونات",
+  "Write a new blog": "كتابة مدونة جديدة",
+  "Log in": "تسجيل الدخول",
+  "All blogs": "جميع المدونات",
+  "You are not authorized to access this page.": "غير مصرح لك بالوصول إلى هذه الصفحة.",
+  "Login?": "تسجيل الدخول؟",
+  "Login": "تسجيل الدخول",
+  "Username:": "اسم المستخدم:",
+  "Password:": "كلمة المرور:",
+  "Sign In": "تسجيل الدخول",
+  "Blog Title": "عنوان المدونة",
+  "Image URL": "عنوان الصورة",
+  "Start Writing!": "ابدأ الكتابة",
+  "Add Blog": "إضافة مدونة",
+  "Continue Reading": "المزيد"
+ 
 }
-
-

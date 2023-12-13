@@ -1,4 +1,5 @@
 import { appWithTranslation } from 'next-i18next'
+
 import '@/styles/globals.css'
 import { SessionProvider } from 'next-auth/react'
 import Layout from '../components/layout/Layout'

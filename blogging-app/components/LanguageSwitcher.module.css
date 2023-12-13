@@ -1,0 +1,19 @@
+.opts {
+    position: relative;
+    display: inline-block;
+    border-radius:5px;
+    padding: 3px;
+    margin-right: 0;
+    margin-left: 0;
+    border-color: rgb(49, 135, 172);
+    color: white;
+    /* color:  rgb(22, 121, 164); */
+    background-color: rgb(49, 135, 172);
+    font-size: 0.9rem;
+  }
+  
+  
+  .opts:hover .opts-content {
+    opacity: 0.5;
+
+  }

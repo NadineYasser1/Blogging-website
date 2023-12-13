@@ -1,21 +1,26 @@
 import { Fragment, useContext } from "react";
 import classes from "./MainNavigation.module.css";
 import Link from "next/link";
-import { useRouter } from "next/router";
-// import LanguageSwitcher from "../LanguageSwitcher";
+// import { useRouter } from "next/router";
+import LanguageSwitcher from "../LanguageSwitcher";
 import { useTranslation } from "next-i18next";
 import { AuthContext } from "@/store/auth-context";
-import { signOut } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
+import { useRouter } from "next/router";
+
 
 function MainNavigation({ dir }) {
-  const { locales } = useRouter();
-  const { t } = useTranslation();
+
+  // const { locales } = useRouter();
+  const { t } = useTranslation('common');
+  const router = useRouter()
   const authCtx = useContext(AuthContext)
-  console.log(authCtx.isAuthenticated)
+  // console.log(authCtx.isAuthenticated)
+  const { data: session } = useSession()
 
   async function signoutHandler() {
     authCtx.logout()
-   await signOut({callbackUrl: '/'})
+   await signOut({callbackUrl: '/'+router.locale})
   }
  
 
@@ -25,7 +30,7 @@ function MainNavigation({ dir }) {
       <nav>
         <div>
           {" "}
-          {authCtx.isAuthenticated ? (
+          {session ? (
             <Fragment>
             <ul>
               <li>
@@ -38,10 +43,16 @@ function MainNavigation({ dir }) {
               {t("Sign out")}
             </button>
             </li>
+            <li> <LanguageSwitcher /> </li>
               </ul>
             </Fragment>
           ) : (
-            <Link href="/login">{t("Sign in")}</Link>
+            <ul>
+      
+           <li> <Link href="/login">{t("Sign in")}</Link> </li> 
+           <li> <LanguageSwitcher /> </li>
+            </ul>
+            
           )}{" "}
         </div>
       </nav>

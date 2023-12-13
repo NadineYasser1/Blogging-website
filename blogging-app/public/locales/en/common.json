@@ -1,2 +1,25 @@
-{ 
-"HELLO_WORLD": "Hello, World!" }
+{
+      "Blogging app": "Blogging App",
+      "Home": "Home",
+      "New Blog": "New Blog",
+      "Sign out": "Sign Out",
+      "Sign in": "Sign In",
+      "Welcome to the blogging App": "Welcome to the blogging App",
+      "View Blogs": "View Blogs",
+      "Write a new blog": "Write a New Blog",
+      "Log in": "Log In",
+      "All blogs": "All Blogs",
+      "You are not authorized to access this page.": "You are not authorized to access this page.",
+      "Login?": "Login?",
+      "Login": "Login",
+      "Username:": "Username:",
+      "Password:": "Password:",
+      "Sign In": "Sign In",
+      "Blog Title": "Blog Title",
+      "Image URL": "Image URL",
+      "Start Writing!": "Start Writing!",
+      "Add Blog": "Add Blog",
+      "Continue Reading" : "Continue Reading"
+
+  }
+  

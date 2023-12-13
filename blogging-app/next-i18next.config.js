@@ -1,4 +1,5 @@
 // next-i18next.config.js
+const path = require('path')
 
 module.exports = {
     i18n: {
@@ -8,4 +9,5 @@ module.exports = {
       // a non-localized route (e.g. `/about`)   
       defaultLocale: 'en'
     },
+    // localePath: 'public/locales'
   }

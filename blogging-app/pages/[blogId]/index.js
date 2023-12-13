@@ -1,6 +1,7 @@
 import { MongoClient } from "mongodb";
 import BlogDetail from "@/components/blogs/BlogDetail";
 import { dbUrl } from "../api/new-blog";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 const ObjectId = require('mongodb').ObjectId;
 
@@ -23,9 +24,15 @@ export async function getStaticPaths() {
 
   return {
     fallback: false, 
-    paths: blogs.map((blog) => ({
-      params: {blogId: blog._id.toString()}
+    paths: 
+    // [
+      blogs.map((blog) => ({
+      params: {blogId:blog._id.toString(), locale: 'en'}
     }))
+    // ,
+    // blogs.map((blog) => ({
+    //   params: {blogId: blog._id.toString(), locale: 'ar'}
+    // }))]
 }
 }
 export async function getStaticProps(context) {
@@ -45,7 +52,8 @@ export async function getStaticProps(context) {
             image: selectedBlog.image,
             title: selectedBlog.title,
             blogText: selectedBlog.blogText
-        }
+        },
+        ...(await serverSideTranslations(context.locale))
       }
       }
     }

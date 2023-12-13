@@ -1,9 +1,11 @@
 import { useRef } from 'react';
+import { useTranslation } from 'next-i18next'
 import classes from './SigninForm.module.css'
 
 
 function SigninForm(props) {
 
+  const { t } = useTranslation()
 
   const usernameInputRef = useRef();
   const passwordInputRef = useRef();
@@ -27,11 +29,11 @@ function SigninForm(props) {
 
   return (
     <div className={classes.container}>
-     <h1 className={classes.title}>Login</h1>
+     <h1 className={classes.title}>{t('Login')}</h1>
  
     <form className={classes.form} onSubmit={submitHandler}>
       <div>
-        <label className={classes.label} htmlFor="username">Username:</label>
+        <label className={classes.label} htmlFor="username">{t('Username:')}</label>
         <input
           type="text"
           required
@@ -43,7 +45,7 @@ function SigninForm(props) {
         />
       </div>
       <div>
-        <label className={classes.label} htmlFor="password">Password:</label>
+        <label className={classes.label} htmlFor="password">{t('Password:')}</label>
         <input
           type="password"
           id="password"
@@ -55,7 +57,7 @@ function SigninForm(props) {
         />
       </div>
       <div className={classes.buttonContainer}>
-        <button className={classes.button} type="submit">Sign In</button>
+        <button className={classes.button} type="submit">{t('Sign In')}</button>
       </div>
     </form>
     </div>

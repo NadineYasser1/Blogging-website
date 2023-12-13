@@ -1,9 +1,10 @@
 import { useRef } from 'react';
-
+import { useTranslation } from 'react-i18next';
 import Card from '../ui/Card';
 import classes from './NewBlogForm.module.css';
 
 function NewBlogForm(props) {
+  const { t } =  useTranslation('common');
   const titleInputRef = useRef();
   const imageInputRef = useRef();
   const blogTextInputRef = useRef();
@@ -29,16 +30,16 @@ function NewBlogForm(props) {
     <Card>
       <form className={classes.form} onSubmit={submitHandler}>
         <div className={classes.control}>
-          <label htmlFor='title'>Blog Title</label>
+          <label htmlFor='title'>{t('Blog Title')}</label>
           <input type='text' required id='title' ref={titleInputRef} />
         </div>
         <div className={classes.control}>
-          <label htmlFor='image'>Image URL</label>
+          <label htmlFor='image'>{t('Image URL')}</label>
           <input type='url' required id='image' ref={imageInputRef} />
         </div>
 
         <div className={classes.control}>
-          <label htmlFor='text'>Start Writing!</label>
+          <label htmlFor='text'>{t('Start Writing!')}</label>
           <textarea
             id='blogText'
             required
@@ -47,7 +48,7 @@ function NewBlogForm(props) {
           ></textarea>
         </div>
         <div className={classes.actions}>
-          <button>Add Blog</button>
+          <button>{t('Add Blog')}</button>
         </div>
       </form>
     </Card>
