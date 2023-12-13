@@ -2,7 +2,7 @@ import BlogList from "@/components/blogs/BlogList";
 import { dbUrl } from "../api/new-blog";
 import { MongoClient } from "mongodb";
 import { useSession } from "next-auth/react";
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import Link from "next/link";
 import { useContext } from "react";
 import { AuthContext } from "@/store/auth-context";
@@ -18,10 +18,11 @@ if(!session) {
         <Link href='/login'>Login?</Link>
         </Fragment>
 }
-// should i use useEffect?
-console.log(session)
-const token = session.token.token.jti
-authCtx.authenticate(token)
+
+    console.log(session)
+    const token = session.token.token.jti
+    authCtx.authenticate(token)
+
 
 return <BlogList blogs={blogs}/>
 

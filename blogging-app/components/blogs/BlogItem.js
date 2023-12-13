@@ -16,10 +16,10 @@ function BlogItem(props) {
         </div>
         <div className={classes.content}>
           <h3>{props.title}</h3>
-          <p>{props.blogText}</p>
+          <p>{props.blogText.substring(0,500)}...</p>
         </div>
         <div className={classes.actions}>
-          <button onClick={showDetailsHandler}>Show Details</button>
+          <button onClick={showDetailsHandler}>Continue Reading</button>
         </div>
       </Card>
     </li>
