@@ -1,8 +1,8 @@
-//domain.com/new-meetup
 import { useRouter } from "next/router";
 import NewBlogForm from "../../components/blogs/NewBlogForm";
 import { Fragment } from "react";
 import Head from "next/head";
+import { useTranslation } from 'next-i18next'
 
 
 function NewBlog() {
