@@ -1,0 +1,58 @@
+.container {
+    max-width: 100%;
+    max-height: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .title {
+    text-align: center;
+    color:rgb(39, 99, 117);
+    font-size: 30px;
+    padding-bottom: 30px;
+  }
+  
+  .form {
+    display: grid;
+    gap: 30px;
+    padding-bottom: 30px;
+  }
+  
+  .label {
+    font-weight: bold;
+    color: rgb(39, 99, 117);
+  }
+  
+  .input {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  .buttonContainer {
+    align-items: center;
+    text-align: center;
+    padding-top: 30px;
+
+  }
+  .button {
+   
+    background-color:rgb(49, 135, 172);
+    color: white;
+    border: none;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 25px;
+    padding-right: 25px;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  .button:hover {
+   opacity: 0.8;
+  }
+  
