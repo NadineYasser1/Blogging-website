@@ -8,7 +8,7 @@ function BlogItem(props) {
   const { t } = useTranslation('common');
 
   function showDetailsHandler() {
-    router.push('/' + props.id)
+    router.push('/' + router.locale + '/' + props.id)
   }
   return (
     <li className={classes.item}>

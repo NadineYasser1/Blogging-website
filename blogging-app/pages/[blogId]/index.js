@@ -14,7 +14,7 @@ function BlogDetails(props) {
 }
 
 
-export async function getStaticPaths() {
+export async function getStaticPaths({ locales }) {
 
   const client = await MongoClient.connect(dbUrl)
   const db = client.db()
@@ -22,19 +22,36 @@ export async function getStaticPaths() {
   const blogs = await blogsCollection.find({}, {_id: 1}).toArray()
   client.close()
 
+  
+  const paths = blogs.flatMap((blog) => {
+    return locales.map((locale) => {
+      return {
+        params: {
+          blogId: blog._id.toString(),
+        },
+        locale: locale,
+      };
+    });
+  });
   return {
-    fallback: false, 
-    paths: 
-    // [
-      blogs.map((blog) => ({
-      params: {blogId:blog._id.toString(), locale: 'en'}
-    }))
-    // ,
-    // blogs.map((blog) => ({
-    //   params: {blogId: blog._id.toString(), locale: 'ar'}
-    // }))]
+    paths: paths,
+    fallback: false,
+  };
 }
-}
+//   return {
+//     fallback: false, 
+//     paths: 
+//      [
+//       blogs.map((blog) => ({
+//       params: {blogId:blog._id.toString(), locale: 'en'}
+//     })),
+//     // blogs.map((blog) => {})
+//   ]
+//     // blogs.map((blog) => ({
+//     //   params: {blogId: blog._id.toString(), locale: 'ar'}
+//     // }))]
+// }
+// }
 export async function getStaticProps(context) {
 
     const blogId = context.params.blogId; 
